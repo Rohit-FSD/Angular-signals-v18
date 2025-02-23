@@ -24,7 +24,7 @@ export class DefaultLayoutComponent {
   getUsers() {
     this.usersService.fetchUsers().subscribe((res) => {
       this.users.set(res);
-      this.currentSelectedUser.set(res[0]);
+      this.currentSelectedUser.set(this.users()[0]);
     })
   }
 

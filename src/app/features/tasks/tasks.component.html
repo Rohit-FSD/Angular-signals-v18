@@ -1,3 +1,16 @@
-<p>{{userSelectedId()}}</p>
-<p>{{userName()}}</p>
-<p>{{tasksBasedOnId()}}</p>
+<section id="tasks">
+    <header>
+        <h2>{{ userName() }}'s Tasks</h2>
+        <menu>
+            <button>Add Task</button>
+        </menu>
+    </header>
+
+    <ul>
+        @for (task of tasksBasedOnId(); track task.id) {
+        <li>
+            <app-task [task]="task" (removeTaskId)="onComplete($event)" />
+        </li>
+        }
+    </ul>
+</section>

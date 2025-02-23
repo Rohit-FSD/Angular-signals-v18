@@ -8,5 +8,4 @@ import { DefaultLayoutComponent } from "./layout/default-layout/default-layout.c
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'todo-list-angular18';
 }

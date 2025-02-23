@@ -1,10 +1,11 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { TasksService } from '../../core/services/tasks.service';
 import { Task } from '../../core/models/task.nodel';
+import { TaskComponent } from "./task/task.component";
 
 @Component({
   selector: 'app-tasks',
-  imports: [],
+  imports: [TaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss'
 })
@@ -26,5 +27,9 @@ export class TasksComponent {
     this.taskService.fetchTasks().subscribe((res) => {
       this.tasks.set(res);
     });
+  }
+
+  onComplete(taskId: string) {
+    this.tasks.set(this.tasks().filter((task) => task.id !== taskId));
   }
 }

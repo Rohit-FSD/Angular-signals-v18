@@ -1,8 +1,7 @@
 <app-header />
 <main>
+  @let selectedUser=currentSelectedUser();
   <ul id="users">
-    @let selectedUser=currentSelectedUser();
-
     @for(user of users(); track user.id) {
     <li>
       <app-user [user]="user" [isSelected]="selectedUser?.id === user.id" (selectedUser)="onSelectingUser($event)" />
